@@ -1,0 +1,24 @@
+Object.defineProperty(exports, "__esModule", { value: true });
+function {{NAME}}Lexer (yy = {}) {
+  this.options = {{OPTIONS}};
+
+  JisonLexer.call(this, yy);
+
+
+  this.rules = {{RULES}};
+  this.conditions = {{CONDITIONS}};
+  this.performAction = function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+{{ACTION_INCLUDE}}    const YYSTATE=YY_START;
+    switch($avoiding_name_collisions) {
+{{STATE_ACTIONS}}
+    }
+  }
+}
+{{NAME}}Lexer.prototype = Object.create(JisonLexer.prototype);
+Object.defineProperty({{NAME}}Lexer.prototype, 'constructor', {
+  value: {{NAME}}Lexer,
+  enumerable: false,
+  writable: true
+});
+
+exports.Lexer = {{NAME}}Lexer;

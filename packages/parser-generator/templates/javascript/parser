@@ -1,0 +1,36 @@
+Object.defineProperty(exports, "__esModule", { value: true });
+const { JisonParser, o } = require('@ts-jison/parser');
+const { JisonLexer } = require('@ts-jison/lexer');
+
+function {{NAME}}Parser (yy = {}, lexer = new {{NAME}}Lexer(yy)) {
+
+  const {{VARIABLES}};
+
+
+
+
+  JisonParser.call(this, yy, lexer);
+
+
+  this.symbols_ = {{SYMBOLS}};
+  this.terminals_ = {{TERMINALS}};
+  this.productions_ = {{PRODUCTIONS}};
+  this.table = {{TABLE}};
+  this.defaultActions = {{DEFAULT_ACTIONS}};
+
+  this.performAction = function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */{{PARSE_PARAMS}}) {
+/* this == yyval */
+{{ACTION_INCLUDE}}    const $0 = $$.length - 1;
+    switch (yystate) {
+{{STATE_ACTIONS}}
+    }
+  }
+}
+{{NAME}}Parser.prototype = Object.create(JisonParser.prototype);
+Object.defineProperty({{NAME}}Parser.prototype, 'constructor', {
+  value: {{NAME}}Parser,
+  enumerable: false,
+  writable: true
+});
+
+exports.Parser = {{NAME}}Parser;
